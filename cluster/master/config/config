@@ -26,4 +26,4 @@ KUBE_CLUSTER_ADDRESSES="--cluster-cidr=10.255.0.0/16"
 
 # the local kube config
 # How the controller-manager, scheduler, kubelet, and proxy find the apiserver
-KUBE_CONFIG="--kubeconfig=/root/.kube/conf"
+KUBE_CONFIG="--kubeconfig=/root/.kube/config"

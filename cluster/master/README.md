@@ -23,7 +23,8 @@ sh -c "echo '[node2 IP] kube-node2' >> /etc/hosts"
 
 ### ディレクトリ作成
 ```
-mkdir /root/.kube/conf
+mkdir /root/.kube
+touch /root/.kube/config
 mkdir /var/lib/kubelet
 mkdir /etc/kubernetes
 mkdir /var/lib/etcd
@@ -61,7 +62,7 @@ wget https://github.com/coreos/etcd/releases/download/v3.1.10/etcd-v3.1.10-linux
 tar xzvf etcd-v3.1.10-linux-amd64.tar.gz
 
 ln -s /root/etcd-v3.1.10-linux-amd64/etcd /usr/local/bin/
-ln -s /root/etcd-v3.1.10-linux-amd64/etcdstl /usr/local/bin/
+ln -s /root/etcd-v3.1.10-linux-amd64/etcdctl /usr/local/bin/
 ```
 
 ---
@@ -98,5 +99,30 @@ systemctl start flanneld
 systemctl start kube-apiserver
 systemctl start kube-controller-manager
 systemctl start kube-scheduler
+```
+
+---
+
+### etcd接続確認
+```
+curl -s -L http://127.0.0.1:2379/version
+```
+
+### プロセスのLISTEN確認
+```
+netstat -tulnp | grep -E "(kube)|(etcd)"
+```
+
+### logの確認方法
+```
+systemctl status kube-apiserver.service | less
+systemctl status kube-scheduler.service | less
+systemctl status kube-controller-manager.service | less
+
+journalctl -xe | less
+
+journalctl -xe --unit kube-apiserver
+journalctl -xe --unit kube-scheduler
+journalctl -xe --unit kube-controller-manager
 ```
 
