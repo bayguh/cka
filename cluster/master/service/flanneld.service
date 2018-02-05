@@ -8,7 +8,10 @@ After=etcd.service
 [Service]
 Type=notify
 EnvironmentFile=/etc/kubernetes/flanneld
-ExecStart=/usr/local/bin/flanneld $FLANNEL_OPTIONS
+ExecStart=/usr/local/bin/flanneld \
+    $FLANNEL_ETCD_ENDPOINTS \
+    $FLANNEL_ETCD_PREFIX \
+    $FLANNEL_OPTIONS
 Restart=on-failure
 
 [Install]

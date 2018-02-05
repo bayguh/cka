@@ -25,7 +25,6 @@ sh -c "echo '[node2 IP] kube-node2' >> /etc/hosts"
 ```
 mkdir /root/.kube
 touch /root/.kube/config
-mkdir /var/lib/kubelet
 mkdir /etc/kubernetes
 mkdir /var/lib/etcd
 ```
@@ -47,7 +46,7 @@ tar xzvf kubernetes/server/kubernetes-server-linux-amd64.tar.gz
 ln -s /root/kubernetes/server/bin/kube-apiserver /usr/local/bin/
 ln -s /root/kubernetes/server/bin/kube-controller-manager /usr/local/bin/
 ln -s /root/kubernetes/server/bin/kube-scheduler /usr/local/bin/
-ln -s /root/kubernetes/server/bin/kubelet /usr/local/bin/
+ln -s /root/kubernetes/server/bin/kubectl /usr/local/bin/
 ```
 
 ### kube-apiserver設定
