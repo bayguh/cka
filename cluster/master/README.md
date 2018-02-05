@@ -49,10 +49,6 @@ ln -s /root/kubernetes/server/bin/kube-scheduler /usr/local/bin/
 ln -s /root/kubernetes/server/bin/kubectl /usr/local/bin/
 ```
 
-### kube-apiserver設定
-KUBE_ETCD_SERVERSを修正
-
-
 ---
 
 ## etcdインストール
@@ -114,12 +110,16 @@ netstat -tulnp | grep -E "(kube)|(etcd)"
 
 ### logの確認方法
 ```
+systemctl status etcd.service | less
+systemctl status flanneld.service | less
 systemctl status kube-apiserver.service | less
 systemctl status kube-scheduler.service | less
 systemctl status kube-controller-manager.service | less
 
 journalctl -xe | less
 
+journalctl -xe --unit etcd
+journalctl -xe --unit flanneld
 journalctl -xe --unit kube-apiserver
 journalctl -xe --unit kube-scheduler
 journalctl -xe --unit kube-controller-manager

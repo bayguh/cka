@@ -23,9 +23,10 @@ sh -c "echo '[node2 IP] kube-node2' >> /etc/hosts"
 
 ### ディレクトリ作成
 ```
-mkdir /root/.kube/conf
-mkdir /var/lib/kubelet
+mkdir /root/.kube
+touch /root/.kube/config
 mkdir /etc/kubernetes
+mkdir /var/lib/kubelet
 ```
 
 ### ファイルの配置
@@ -92,4 +93,29 @@ systemctl list-unit-files -t service
 systemctl start flanneld
 systemctl start kube-proxy
 systemctl start kubelet
+```
+
+---
+
+### etcd接続確認
+```
+curl -s -L http://[masterIP]:2379/version
+```
+
+### プロセスのLISTEN確認
+```
+netstat -tulnp | grep -E "(kube)"
+```
+
+### logの確認方法
+```
+systemctl status flanneld.service | less
+systemctl status kube-proxy.service | less
+systemctl status kubelet.service | less
+
+journalctl -xe | less
+
+journalctl -xe --unit flanneld
+journalctl -xe --unit kube-proxy
+journalctl -xe --unit kubelet
 ```
