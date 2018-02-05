@@ -27,3 +27,6 @@ KUBE_CLUSTER_ADDRESSES="--cluster-cidr=10.255.0.0/16"
 # the local kube config
 # How the controller-manager, scheduler, kubelet, and proxy find the apiserver
 KUBE_CONFIG="--kubeconfig=/root/.kube/conf"
+
+# You may leave this blank to use the actual hostname
+KUBE_HOSTNAME_OVERRIDE="--hostname-override={{k8s_hostname_override|default(inventory_hostname)}}"

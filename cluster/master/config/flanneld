@@ -8,4 +8,4 @@ FLANNEL_ETCD_ENDPOINTS="http://127.0.0.1:2379"
 FLANNEL_ETCD_PREFIX="/test.io/network"
 
 # Any additional options that you want to pass
-#FLANNEL_OPTIONS=""
+FLANNEL_OPTIONS=""

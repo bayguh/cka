@@ -23,6 +23,7 @@ sh -c "echo '[node2 IP] kube-node2' >> /etc/hosts"
 
 ### ディレクトリ作成
 ```
+mkdir /root/.kube/conf
 mkdir /var/lib/kubelet
 mkdir /etc/kubernetes
 ```

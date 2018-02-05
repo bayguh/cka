@@ -8,4 +8,4 @@ KUBELET_ADDRESS="--address=0.0.0.0"
 KUBELET_PORT="--port=10250"
 
 # Add your own!
-KUBELET_ARGS="{{k8s_kubelet_args}}"
+KUBELET_ARGS=""

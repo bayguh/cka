@@ -23,9 +23,10 @@ sh -c "echo '[node2 IP] kube-node2' >> /etc/hosts"
 
 ### ディレクトリ作成
 ```
+mkdir /root/.kube/conf
 mkdir /var/lib/kubelet
-mkdir /var/lib/etcd
 mkdir /etc/kubernetes
+mkdir /var/lib/etcd
 ```
 
 ### ファイルの配置
@@ -47,6 +48,10 @@ ln -s /root/kubernetes/server/bin/kube-controller-manager /usr/local/bin/
 ln -s /root/kubernetes/server/bin/kube-scheduler /usr/local/bin/
 ln -s /root/kubernetes/server/bin/kubelet /usr/local/bin/
 ```
+
+### kube-apiserver設定
+KUBE_ETCD_SERVERSを修正
+
 
 ---
 
