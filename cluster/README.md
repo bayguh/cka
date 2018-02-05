@@ -1,19 +1,19 @@
 # クラスター作成
 
 ## 環境
-GCP環境
-Ubuntu Ubuntu 16.04 LTS
-kubernetes 19.1
+GCP環境 <br />
+Ubuntu Ubuntu 16.04 LTS <br />
+kubernetes 19.1 <br />
 
 ## master
 ▼ インストールするもの
-・ kubernetes 19.1
-・ etcd
-・ flannel
+・ kubernetes 19.1 <br />
+・ etcd <br />
+・ flannel <br />
 
 
 ## node
 ▼ インストールするもの
-・ kubernetes 19.1
-・ Docker
-・ flannel
+・ kubernetes 19.1 <br />
+・ Docker <br />
+・ flannel <br />
