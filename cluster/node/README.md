@@ -28,7 +28,7 @@ mkdir /etc/kubernetes
 ```
 
 ### ファイルの配置
-・ config以下の各コンポーネントの設定ファイルを/etc/kubernetes配下に配置
+・ config以下の各コンポーネントの設定ファイルを/etc/kubernetes配下に配置 <br />
 ・ service以下のファイルを/etc/systemd/system配下に配置
 
 ---
