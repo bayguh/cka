@@ -21,15 +21,15 @@ sh -c "echo '[node1 IP] kube-node1' >> /etc/hosts"
 sh -c "echo '[node2 IP] kube-node2' >> /etc/hosts"
 ```
 
-### ユーザ作成
-```
-```
-
 ### ディレクトリ作成
 ```
 mkdir /var/lib/kubelet
 mkdir /etc/kubernetes
 ```
+
+### ファイルの配置
+・ config以下の各コンポーネントの設定ファイルを/etc/kubernetes配下に配置
+・ service以下のファイルを/etc/systemd/system配下に配置
 
 ---
 
@@ -49,9 +49,6 @@ ln -s /root/kubernetes/server/bin/kube-proxy /usr/local/bin/
 
 ## dockerのインストール
 ```
-apt-get update
-apt-get install -y docker.io
-
 apt-get update
 apt-get install -y \
     apt-transport-https \
@@ -73,4 +70,25 @@ apt-get update && apt-get install -y docker-ce=$(apt-cache madison docker-ce | g
 wget https://github.com/coreos/flannel/releases/download/v0.9.1/flanneld-amd64
 chmod 755 flanneld-amd64
 ln -s /root/flanneld-amd64 /usr/local/bin/flanneld
+```
+
+---
+
+### サービスの起動
+
+▼ 自動起動設定
+```
+systemctl enable flanneld
+systemctl enable kube-proxy
+systemctl enable kubelet
+
+# 確認
+systemctl list-unit-files -t service
+```
+
+▼ 起動
+```
+systemctl start flanneld
+systemctl start kube-proxy
+systemctl start kubelet
 ```

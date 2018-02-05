@@ -5,7 +5,7 @@ Documentation=https://github.com/GoogleCloudPlatform/kubernetes
 [Service]
 EnvironmentFile=-/etc/kubernetes/config
 EnvironmentFile=-/etc/kubernetes/kube-controller-manager
-User=k8s
+User=root
 ExecStart=/usr/local/bin/kube-controller-manager \
         $KUBE_LOGTOSTDERR \
         $KUBE_LOG_LEVEL \

@@ -21,15 +21,16 @@ sh -c "echo '[node1 IP] kube-node1' >> /etc/hosts"
 sh -c "echo '[node2 IP] kube-node2' >> /etc/hosts"
 ```
 
-### ユーザ作成
-```
-```
-
 ### ディレクトリ作成
 ```
 mkdir /var/lib/kubelet
+mkdir /var/lib/etcd
 mkdir /etc/kubernetes
 ```
+
+### ファイルの配置
+・ config以下の各コンポーネントの設定ファイルを/etc/kubernetes配下に配置
+・ service以下のファイルを/etc/systemd/system配下に配置
 
 ---
 
@@ -66,3 +67,31 @@ wget https://github.com/coreos/flannel/releases/download/v0.9.1/flanneld-amd64
 chmod 755 flanneld-amd64
 ln -s /root/flanneld-amd64 /usr/local/bin/flanneld
 ```
+
+---
+
+### サービスの起動
+
+▼ 自動起動設定
+```
+systemctl enable etcd
+systemctl enable flanneld
+systemctl enable kube-apiserver
+systemctl enable kube-controller-manager
+systemctl enable kube-scheduler
+
+# 確認
+systemctl list-unit-files -t service
+```
+
+▼ 起動
+```
+systemctl start etcd
+etcdctl mk /test.io/network/config '{"Network":"10.0.0.0/16"}'
+
+systemctl start flanneld
+systemctl start kube-apiserver
+systemctl start kube-controller-manager
+systemctl start kube-scheduler
+```
+

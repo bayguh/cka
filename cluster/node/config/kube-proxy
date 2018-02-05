@@ -1,0 +1,2 @@
+KUBE_PROXY_ADDRESS="--bind-address 0.0.0.0"
+KUBE_PROXY_ARGS=""
