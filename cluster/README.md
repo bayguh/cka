@@ -8,7 +8,7 @@ kubernetes 19.1 <br />
 ## master
 ▼ インストールするもの <br />
 ・ kubernetes 19.1 <br />
-    - kube-apiserver, kube-controller-manager, kube-scheduler
+&nbsp;&nbsp;&nbsp;&nbsp;- kube-apiserver, kube-controller-manager, kube-scheduler <br />
 ・ etcd <br />
 ・ flannel <br />
 
@@ -16,6 +16,6 @@ kubernetes 19.1 <br />
 ## node
 ▼ インストールするもの <br />
 ・ kubernetes 19.1 <br />
-    - kubelet, kube-proxy
+&nbsp;&nbsp;&nbsp;&nbsp;- kubelet, kube-proxy <br />
 ・ Docker <br />
 ・ flannel <br />
