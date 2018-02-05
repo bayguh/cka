@@ -6,14 +6,14 @@ Ubuntu Ubuntu 16.04 LTS <br />
 kubernetes 19.1 <br />
 
 ## master
-▼ インストールするもの
+▼ インストールするもの <br />
 ・ kubernetes 19.1 <br />
 ・ etcd <br />
 ・ flannel <br />
 
 
 ## node
-▼ インストールするもの
+▼ インストールするもの <br />
 ・ kubernetes 19.1 <br />
 ・ Docker <br />
 ・ flannel <br />
