@@ -10,7 +10,11 @@ WorkingDirectory=/var/lib/etcd/
 EnvironmentFile=-/etc/kubernetes/etcd.conf
 User=root
 # set GOMAXPROCS to number of processors
-ExecStart=/bin/bash -c "GOMAXPROCS=$(nproc) /usr/local/bin/etcd --name=\"${ETCD_NAME}\" --data-dir=\"${ETCD_DATA_DIR}\" --listen-client-urls=\"${ETCD_LISTEN_CLIENT_URLS}\""
+ExecStart=/bin/bash -c "GOMAXPROCS=$(nproc) /usr/local/bin/etcd \
+    --name=\"${ETCD_NAME}\" \
+    --data-dir=\"${ETCD_DATA_DIR}\" \
+    --listen-client-urls=\"${ETCD_LISTEN_CLIENT_URLS}\" \
+    --advertise-client-urls=\"${ETCD_ADVERTISE_CLIENT_URLS}\""
 Restart=on-failure
 LimitNOFILE=65536
 
