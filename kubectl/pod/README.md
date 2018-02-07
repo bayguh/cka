@@ -25,7 +25,7 @@ kubectl exec -it [pod名] /bin/bash
 
 ## 特権コンテナ
 
-kube-apiserverとkubeletで「--allow-privileged=true」に設定し
+kube-apiserverとkubeletで「--allow-privileged=true」に設定し<br />
 yaml定義のspec.containers[0-9].securityContext.privileged = true に設定する
 
 ---
