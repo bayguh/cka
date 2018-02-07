@@ -69,6 +69,9 @@ kubectl delete service [service名]
 ```
 # kubectlのconfig情報
 kubectl config view
+
+## kubernetes version確認
+kubectl version
 ```
 
 ---
