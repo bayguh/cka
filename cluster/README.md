@@ -19,3 +19,4 @@
 &nbsp;&nbsp;&nbsp;&nbsp;- kubelet, kube-proxy <br />
 ・ Docker 17.03-ce <br />
 ・ flannel 0.9.1 <br />
+・ cni v0.6.0 <br />

@@ -23,15 +23,17 @@ sh -c "echo '[node2 IP] kube-node2' >> /etc/hosts"
 
 ### ディレクトリ作成
 ```
-mkdir /root/.kube
+mkdir -p /root/.kube
 touch /root/.kube/config
-mkdir /etc/kubernetes
-mkdir /var/lib/kubelet
+mkdir -p /etc/kubernetes
+mkdir -p /var/lib/kubelet
+mkdir -p /etc/cni/net.d
 ```
 
 ### ファイルの配置
 ・ config以下の各コンポーネントの設定ファイルを/etc/kubernetes配下に配置 <br />
 ・ service以下のファイルを/etc/systemd/system配下に配置
+・ cni以下のファイルを/etc/cni/net.d配下に配置
 
 ---
 
@@ -73,6 +75,19 @@ apt-get update && apt-get install -y docker-ce=$(apt-cache madison docker-ce | g
 wget https://github.com/coreos/flannel/releases/download/v0.9.1/flanneld-amd64
 chmod 755 flanneld-amd64
 ln -s /root/flanneld-amd64 /usr/local/bin/flanneld
+```
+
+---
+
+## cniのインストール
+```
+mkdir -p /opt/cni/bin
+cd /opt/cni/bin
+
+wget https://github.com/containernetworking/cni/releases/download/v0.6.0/cni-amd64-v0.6.0.tgz
+wget https://github.com/containernetworking/plugins/releases/download/v0.6.0/cni-plugins-amd64-v0.6.0.tgz
+gzip -dc cni-amd64-v0.6.0.tgz | tar xvf -
+gzip -dc cni-plugins-amd64-v0.6.0.tgz | tar xvf -
 ```
 
 ---

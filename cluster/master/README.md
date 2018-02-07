@@ -23,10 +23,10 @@ sh -c "echo '[node2 IP] kube-node2' >> /etc/hosts"
 
 ### ディレクトリ作成
 ```
-mkdir /root/.kube
+mkdir -p /root/.kube
 touch /root/.kube/config
-mkdir /etc/kubernetes
-mkdir /var/lib/etcd
+mkdir -p /etc/kubernetes
+mkdir -p /var/lib/etcd
 ```
 
 ### ファイルの配置
