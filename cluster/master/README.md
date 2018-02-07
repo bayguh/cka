@@ -125,3 +125,13 @@ journalctl -xe --unit kube-scheduler
 journalctl -xe --unit kube-controller-manager
 ```
 
+---
+
+### clusterへ接続
+
+```
+kubectl config set-cluster test-cluster --server=http://[master hostname]:8080
+kubectl config set-credentials admin --username=admin --password=admin
+kubectl config set-context test --cluster=test-cluster --user=admin
+kubectl config use-context test
+```

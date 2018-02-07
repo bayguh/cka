@@ -45,6 +45,7 @@ tar xzvf kubernetes/server/kubernetes-server-linux-amd64.tar.gz
 
 ln -s /root/kubernetes/server/bin/kubelet /usr/local/bin/
 ln -s /root/kubernetes/server/bin/kube-proxy /usr/local/bin/
+ln -s /root/kubernetes/server/bin/kubectl /usr/local/bin/
 ```
 
 ---
@@ -118,4 +119,15 @@ journalctl -xe | less
 journalctl -xe --unit flanneld
 journalctl -xe --unit kube-proxy
 journalctl -xe --unit kubelet
+```
+
+---
+
+### clusterへ接続
+
+```
+kubectl config set-cluster test-cluster --server=http://[master hostname]:8080
+kubectl config set-credentials admin --username=admin --password=admin
+kubectl config set-context test --cluster=test-cluster --user=admin
+kubectl config use-context test
 ```

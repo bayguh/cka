@@ -1,2 +1,2 @@
 KUBE_PROXY_ADDRESS="--bind-address=0.0.0.0"
-KUBE_PROXY_ARGS="--master http://[masterIP]:8080"
+KUBE_PROXY_ARGS="--master http://[master hostname]:8080"
