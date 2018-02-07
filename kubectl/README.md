@@ -67,6 +67,11 @@ kubectl delete service [service名]
 
 ### その他
 ```
+# リソースの作成/更新
+kubectl apply -f ./resource.yml
+# リソースの削除
+kubectl delete -f ./resource.yml
+
 # kubectlのconfig情報
 kubectl config view
 
@@ -82,4 +87,5 @@ kubectl version
 # -o wide(情報量が増える)
 # -o json(詳細情報をjsonで出力)
 # -o yaml(詳細情報をyamlで出力)
+# -w(変更差分を定期的に表示)
 ```
