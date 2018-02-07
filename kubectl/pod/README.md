@@ -1,5 +1,10 @@
 # Pod
 
+公式ドキュメント<br />
+https://kubernetes.io/docs/concepts/workloads/pods/pod-overview/
+
+---
+
 Kubernetesの最小リソース単位。1Pod = 1Containerが基本
 
 ---
