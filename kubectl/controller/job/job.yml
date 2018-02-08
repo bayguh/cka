@@ -1,0 +1,17 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: job
+spec:
+  completions: 5 # 成功回数
+  parallelism: 2 # 並行実行数
+  template:
+    metadata:
+      name: job
+    spec:
+      containers:
+        - name: sleep-container
+          image: centos:latest
+          command: ["sleep"]
+          args: ["30"]
+      restartPolicy: Never
