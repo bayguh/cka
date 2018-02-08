@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      pod: nginx-deploy
+  template:
+    metadata:
+      labels:
+        pod: nginx-deploy
+    spec:
+      containers:
+        - name: nginx
+          image: zembutsu/docker-sample-nginx:1.0
+          ports:
+            - containerPort: 80

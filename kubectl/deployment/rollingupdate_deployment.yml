@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rollingupdate-deployment
+spec:
+  replicas: 3
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0         # 一度に停止可能なPod数
+      maxSurge: 1               # 一度に超過可能なPod数
+  minReadySeconds: 0            # PodがReady状態になってからPodの起動が完了したと判断するまでの最低秒数
+  revisionHistoryLimit: 2       # ロールバック可能な履歴数(Deploymentが保持するReplicaSetの数)
+  progressDeadlineSeconds: 3600 # タイムアウト時間
+  selector:
+    matchLabels:
+      pod: nginx-rollingupdate-deploy
+  template:
+    metadata:
+      labels:
+        pod: nginx-rollingupdate-deploy
+    spec:
+      containers:
+        - name: nginx
+          image: zembutsu/docker-sample-nginx:1.0
+          ports:
+            - containerPort: 80

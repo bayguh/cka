@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: recreate-deployment
+spec:
+  replicas: 3
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      pod: nginx-recreate-deploy
+  template:
+    metadata:
+      labels:
+        pod: nginx-recreate-deploy
+    spec:
+      containers:
+        - name: nginx
+          image: zembutsu/docker-sample-nginx:1.0
+          ports:
+            - containerPort: 80
