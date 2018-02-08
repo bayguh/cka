@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: statefulset
+spec:
+  serviceName: statefulset-service
+  replicas: 3
+  selector:
+    matchLabels:
+      pod: nginx-statefulset
+  template:
+    metadata:
+      labels:
+        pod: nginx-statefulset
+    spec:
+      containers:
+        - name: nginx
+          image: zembutsu/docker-sample-nginx:1.0
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: www
+              mountPath: /usr/share/nginx/html
+  volumeClaimTemplates:
+    - metadata:
+        name: www
+      spec:
+        accessModes: [ "ReadWriteOnce" ]
+        storageClassName: my-storage-class
+        resources:
+          requests:
+            storage: 1Gi
