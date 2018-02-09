@@ -1,0 +1,3 @@
+thread=16
+connection_max=100
+connection_min=10

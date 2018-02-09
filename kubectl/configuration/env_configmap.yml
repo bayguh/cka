@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: env-configmap
+spec:
+  containers:
+    - name: configmap
+      image: zembutsu/docker-sample-nginx:1.0
+      env:                        # 個別に設定する場合1つ１つ定義する
+        - name: CONNECTION_MAX    # あまり使用しない
+          valueFrom:
+            configMapKeyRef:
+              name: env
+              key: connection_max
+      envFrom:                    # ConfigMapの内容を全て渡す
+        - configMapRef:           # ただし[.]が含まれているものと改行が含まれているのもは環境変数で扱えない
+            name: nginx           # なので、単純なkey-valueの変数にこちらを使うイメージ(nginx.confとかは環境変数で渡さない)
