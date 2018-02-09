@@ -92,5 +92,11 @@ kubectl exec -it env-configmap env | grep CONNECTION_MAX
 ```
 
 ### ConfigMapの定義をValumeとしてマウントする
+```
+kubectl apply -f volume_configmap.yml
+```
 
-
+確認方法
+```
+kubectl exec -it volume_configmap cat /config/nginx.conf
+```
