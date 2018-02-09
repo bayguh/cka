@@ -101,5 +101,5 @@ kubectl apply -f volume_configmap.yml
 kubectl exec -it volume_configmap cat /config/nginx.conf
 ```
 
-※ ConfigMapを変更することでマウントしているファイルを動的に変更することが可能
+※ ConfigMapを変更することでマウントしているファイルを動的に変更することが可能<br />
   kubeletのSync Loopのタイミングでチェックされる(デフォルト60秒)
