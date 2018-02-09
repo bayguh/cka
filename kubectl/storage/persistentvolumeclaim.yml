@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pvc
+spec:
+  selector:
+    matchLabels:
+      type: "nfs"
+    matchExpressions:
+      - {key: environment, operator: In, values: [dev]}
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 4Gi
