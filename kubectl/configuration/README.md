@@ -7,7 +7,7 @@ https://kubernetes.io/docs/concepts/configuration/overview/
 
 ## 環境変数
 
-https://kubernetes.io/docs/tasks/inject-data-application/environment-variable-expose-pod-information//<br /><br />
+https://kubernetes.io/docs/tasks/inject-data-application/environment-variable-expose-pod-information/<br /><br />
 
 spec.containers[x].envでコンテナ内に環境変数を渡すことが可能<br />
 podに関する情報はfieldRefで取得可能<br />
