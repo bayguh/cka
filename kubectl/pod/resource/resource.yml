@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: resource
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      pod: nginx-resource
+  template:
+    metadata:
+      labels:
+        pod: nginx-resource
+    spec:
+      containers:
+        - name: nginx-container
+          image: zembutsu/docker-sample-nginx:1.0
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "250m"
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 80
