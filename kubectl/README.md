@@ -65,6 +65,15 @@ kubectl get services(svc)
 kubectl delete service [service名]
 ```
 
+### メンテナンス
+```
+# スケジューラの候補から外す
+kubectl cordon [node名]
+
+# podの退避
+kubectl drain [node名] --force --delete-local-data
+```
+
 ### その他
 ```
 # リソースの作成/更新
