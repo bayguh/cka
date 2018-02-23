@@ -9,6 +9,6 @@ spec:
       protocol: "TCP"
       port: 8080
       targetPort: 80
-      # nodePort: 8888 指定しない場合自動で割り当てられる
+      # nodePort: 30080 指定しない場合自動で割り当てられる
   selector:
     pod: nginx
