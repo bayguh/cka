@@ -36,7 +36,7 @@ kubectl delete node [ノード名]
 # pod一覧
 kubectl get pods
 # pod一覧(ラベル表示)
-kubectl get pod --show-labels=true
+kubectl get pod --show-labels
 # pod一覧(node表示)
 kubectl get pod -o wide
 
