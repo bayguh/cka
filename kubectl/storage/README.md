@@ -19,7 +19,7 @@ typeにはDirectory, DirectoryOrCreate, File, FileOrCreateなどがある<br />
 ## PersistentVolume
 永続化領域として確保されるVolume<br /><br />
 
-https://kubernetes.io/docs/concepts/storage/persistent-volumes/<br / >
+https://kubernetes.io/docs/concepts/storage/persistent-volumes/<br />
 
 ```
 kubectl apply -f persistentvolume.yml
